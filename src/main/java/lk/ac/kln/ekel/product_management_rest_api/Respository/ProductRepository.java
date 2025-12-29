@@ -1,18 +1,18 @@
 package lk.ac.kln.ekel.product_management_rest_api.Respository;
 
 import lk.ac.kln.ekel.product_management_rest_api.Entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
-public class ProductRepository implements ProductRepositoryImpl {
+@Repository
+public interface ProductRepository extends JpaRepository<Product,Long> {
 
-    @Override
-    public List<Product> findByCategoryIgnoreCase(String category) {
-        return null;
-    }
+    //we use List here because multiple products are possible
+    List<Product> findByCategoryIgnoreCase(String category);
 
-    @Override
-    public List<Product> findByProductNameIgnoreCase(String ProductName) {
-        return null;
-    }
+    // we use Optional here because we assume the product name to be unique
+    Optional<Product> findByProductNameIgnoreCase(String ProductName);
 }

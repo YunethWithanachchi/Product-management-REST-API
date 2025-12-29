@@ -9,5 +9,6 @@ public interface ServiceImpl {
     ProductDTO addProduct( ProductDTO productDTO);
     List<ProductDTO> getAllProducts();
     List<ProductDTO> searchProducts(String name);
+    List<ProductDTO> getProductByCategory(String category);
     void deleteProductByName(String name);
 }

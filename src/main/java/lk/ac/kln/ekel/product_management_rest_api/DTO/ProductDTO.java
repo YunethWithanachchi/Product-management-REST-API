@@ -21,6 +21,4 @@ public class ProductDTO {
     @Min(value = 1, message = "Quantity must be atleast 1")
     private int quantity;
 
-    public ProductDTO(String productName, String category, Double price, int quantity) {
-    }
 }
