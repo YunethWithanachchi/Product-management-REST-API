@@ -17,7 +17,8 @@ public class ProductService implements ServiceImpl {
     private ProductRepository productRepository;
 
     private ProductDTO convertToDTO(Product product) {
-        return new ProductDTO(product.getProductId().toString(),product.getProductName(), product.getCategory(),product.getPrice(),product.getQuantity());
+        return new ProductDTO(product.getProductId().toString(),product.getProductName(),
+                product.getCategory(),product.getPrice(),product.getQuantity());
     }
 
     private Product convertToEntity(ProductDTO dto) {
@@ -48,7 +49,7 @@ public class ProductService implements ServiceImpl {
 
     @Override
     public List<ProductDTO> getProductByCategory(String category) {
-        return productRepository.findByProductNameIgnoreCase(category).stream()
+        return productRepository.findByCategoryIgnoreCase(category).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
